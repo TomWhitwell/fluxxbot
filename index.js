@@ -245,3 +245,239 @@ function sendWhoMessage(sender){
                 sendTextMessage(sender,"We are Fluxx.")
 
 }
+
+
+
+var subjects=[
+'Nepalese',
+'crazy',
+'radical',
+'weird',
+'slightly dodgy',
+'hot new',
+'CIA-backed',
+'amazing',
+'stealth mode',
+'awesome',
+'bonkers',
+'secret',
+'Belgian',
+'gnarly',
+'superhot',
+'mysterious'
+];
+
+var verbs=[
+];
+
+var objects=[
+'some guys from Iceland set up',
+'has 82% of the Chinese market',
+'is blowing up in India',
+'they saw on Weibo',
+'they saw on VK',
+'they saw on WeChat',
+'got banned from Shoreditch',
+'was in the Daily Mail',
+'their grandma invested in',
+'is massive in Papua New Guinea',
+'is still in Beta',
+'the high street banks are worried about',
+'was founded by ex-Bitcoin guys',
+'is big in Iceland',
+'is coming to Oculus Rift',
+'has branches all over Mexico',
+'they heard about at the school gate',
+'some 9 year-olds told them about',
+'some Latvian hackers built',
+'has a flagship store in Baku'
+];
+
+var endings=[
+'. Elon Musk is all over it.',
+'. Millenials are all over it.',
+'. Everyone who works there has a huge beard.',
+'. Brent Hoberman turned them down.',
+'. They have an office DJ.',
+'. They all ride tiny bikes around the office.',
+'. The CEO has a moustache.',
+'. The whole thing is run from a caravan in Mongolia.',
+'. The founder lives in a yurt.',
+'. They\'re advertising in Coronation St.',
+'. Bono drew their logo.',
+'. The Dalai Lama is on the board.',
+'. Leonardo DiCaprio put in $25m.',
+'. They turned down Ashton Kutcher',
+'. Jared Leto directed their Superbowl ad.',
+'. Justin Bieber was at the launch party.',
+'. Ellen DeGeneres is their PR consultant.',
+'. The CEO\'s life coach is MC Hammer.',
+'. They 3D printed their entire office.',
+'. They have a horse in the office.', 
+'. The staff get 9 months vacation a year.',
+'. They sponsored Deptford Fashion Week.',
+'. Woah.',
+'. Every customer gets free ukulele lessons.',
+'. The office has real grass on the floor.'
+];
+
+var xWords=[
+'Instagram',
+'Facebook',
+'Tinder',
+'Twitter',
+'Candy Crush',
+'Vine',
+'Snapchat',
+'LinkedIn',
+'Netflix',
+'Spotify',
+'Uber',
+'AirBnB',
+'Pinterest',
+'Dropbox',
+'Square',
+'Stripe',
+'Zenefits',
+'New Coke',
+'Slack',
+'PayPal',
+'Apple Pay',
+'Squarespace',
+'TenPay',
+'M-Pesa',
+'virtual reality',
+'Google Wallet',
+'QR codes',
+'Hedgeable',
+'Crowdcube',
+'WeChat',
+'Beats',
+'Coinbase',
+'Alipay'
+
+];
+
+var yWords=[
+'overdrafts',
+'buying a house',
+'payday loans',
+'share dealing',
+'people with bad credit',
+'paying your gas bill',
+'checking your bank balance',
+'doing your tax return',
+'getting a new credit card',
+'paying the milkman',
+'getting your credit card nicked',
+'buying a sofa',
+'paying the nanny',
+'splitting a bar tab',
+'buying lunch',
+'doing your VAT',
+'high net worth individuals',
+'buying a private island',
+'paying your kid\'s pocket money',
+'tax havens',
+'investing in Russia',
+'investing in fine wine',
+'art collectors',
+'people who ride expensive bikes',
+'student loans',
+'angel investors',
+'sovereign wealth funds',
+'quantitative easing',
+'ATM machines',
+'credit cards',
+'founders',
+'drug dealers',
+'gangsters',
+'members of the House of Lords'
+];
+
+
+var fluxx=document.getElementById('fluxx');
+
+pickSubject = getQueryVariable("s");
+if (pickSubject == 0){
+pickSubject = Math.round(Math.random()*(subjects.length-1));};
+
+pickVerb = getQueryVariable("v");
+if (pickVerb == 0){
+pickVerb = Math.round(Math.random()*(verbs.length-1));};
+
+pickObject = getQueryVariable("o");
+if (pickObject == 0){
+pickObject = Math.round(Math.random()*(objects.length-1));};
+
+pickEnding = getQueryVariable("e");
+if (pickEnding == 0){
+pickEnding = Math.round(Math.random()*(endings.length-1));};
+
+pickX = getQueryVariable("x");
+if (pickX == 0){
+pickX = Math.round(Math.random()*(xWords.length-1));};
+
+
+pickY = getQueryVariable("y");
+if (pickY == 0){
+pickY = Math.round(Math.random()*(yWords.length-1));};
+
+contentstring = 
+'Fintech folks at <a href="http://fluxx.uk.com/" style="color:#C5D13B">Fluxx</a> are talking about this ' 
++ 
+subjects[pickSubject]
++ 
+' startup that '
++
+objects[pickObject]
++
+'.  It\'s like '
++
+xWords[pickX]
++
+' for '
++
+yWords[pickY]
++
+endings[pickEnding]
++
+' <br><a href="Fintech-Innovate-O-Matic.html">Give me another.</a></br>'; 
+
+tweetstring = 'It\'s like ' 
+
++
+xWords[pickX]
++
+' for '
++
+yWords[pickY]
++
+endings[pickEnding];
+
+tweetstring = tweetstring.substring(0,80) + '...';
+
+pageurl = encodeURIComponent('Fintech-Innovate-O-Matic.html?s=' + pickSubject + '&o=' + pickObject + '&e=' + pickEnding + '&x=' + pickX  +  '&y=' + pickY);
+
+linkurl = encodeURI('Fintech-Innovate-O-Matic.html?s=' + pickSubject + '&o=' + pickObject + '&e=' + pickEnding + '&x=' + pickX  +  '&y=' + pickY);
+
+
+twitterurl=encodeURI('https://twitter.com/share?via=fluxXstudios&text=' + tweetstring + '&url=http://www.fluxx.uk.com/download/') + pageurl + '&hashtags=fintech';
+
+
+
+window.onload=function(){
+	fluxx.innerHTML+=contentstring + '<a href=' +  twitterurl + ' style="color:4099FF"> Tweet. </a><a href=' + linkurl + ' style="color:#B8B8B8"> Link.</a>';
+}
+
+function getQueryVariable(variable){
+       var query = window.location.search.substring(1);
+       var vars = query.split("&");
+       for (var i=0;i<vars.length;i++) {
+               var pair = vars[i].split("=");
+               if(pair[0] == variable){return pair[1];}
+       }
+       return(false);
+}
+	
+
