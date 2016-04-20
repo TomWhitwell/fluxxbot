@@ -123,7 +123,16 @@ function sendAnimalMessage(sender) {
 
                         "payload": "Person",
                     }],
-                }, ]
+                }, {
+                    "title": "Second card",
+                    "subtitle": "Element #2 of an hscroll",
+                    "image_url": "http://lorempixel.com/400/200/cats/",
+                    "buttons": [{
+                        "type": "postback",
+                        "title": "Postback",
+                        "payload": "Payload for second element in a generic bubble",
+                    }],
+                }]
             }
         }
     }
