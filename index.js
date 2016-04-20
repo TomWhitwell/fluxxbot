@@ -160,15 +160,6 @@ function sendPersonMessage(sender) {
                         "title": "I prefer animals",
                         "payload": "animals",
                     }],
-                }, {
-                    "title": "Second card",
-                    "subtitle": "Element #2 of an hscroll",
-                    "image_url": "http://lorempixel.com/400/200/people/",
-                    "buttons": [{
-                        "type": "postback",
-                        "title": "Postback",
-                        "payload": "Payload for second element in a generic bubble",
-                    }],
                 }]
             }
         }
