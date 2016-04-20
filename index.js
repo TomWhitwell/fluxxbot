@@ -55,7 +55,21 @@ app.post('/webhook/', function (req, res) {
         }
         if (event.postback) {
             text = JSON.stringify(event.postback)
-            sendTextMessage(sender, "Postback received: "+text.substring(0, 200), token)
+checkText = text.toUpperCase()
+            if (checkText.indexOf('ANIMAL') > -1) {
+                sendAnimalMessage(sender)
+                continue
+            }
+            if (checkText.indexOf('PERSON') > -1) {
+                sendPersonMessage(sender)
+                continue
+            }
+
+  if (checkText.indexOf('INNOVATION') > -1) {
+                sendInnovationMessage(sender)
+                continue
+            }
+
             continue
         }
     }
@@ -97,7 +111,6 @@ function sendAnimalMessage(sender) {
                 "template_type": "generic",
                 "elements": [{
                     "title": "Let me show you an animal",
-                    "subtitle": "Element #1 of an hscroll",
                     "image_url": "http://lorempixel.com/400/200/animals/",
                     "buttons": [{
                         "type": "web_url",
