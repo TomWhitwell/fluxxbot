@@ -46,6 +46,10 @@ app.post('/webhook/', function (req, res) {
                 continue
             }
 
+  if (checkText.indexOf('INNOVATION') > -1) {
+                sendInnovationMessage(sender)
+                continue
+            }
             
             sendTextMessage(sender, "No, you " + text.substring(0, 200))
         }
@@ -79,6 +83,10 @@ function sendTextMessage(sender, text) {
             console.log('Error: ', response.body.error)
         }
     })
+}
+function sendInnovationMessage(sender){
+sendTextMessage(sender, "I don\'t really like to talk about innovation.")
+
 }
 
 function sendGenericMessage(sender) {
