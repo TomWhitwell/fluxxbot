@@ -50,6 +50,10 @@ app.post('/webhook/', function (req, res) {
                 sendInnovationMessage(sender)
                 continue
             }
+              if (checkText.indexOf('WHO') > -1) {
+                sendWhoMessage(sender)
+                continue
+            }
                         if (checkText === 'HI') {
                 sendTextMessage(sender,"Yes I am alive")
                 continue
@@ -60,7 +64,7 @@ app.post('/webhook/', function (req, res) {
             }
 
             
-            sendTextMessage(sender, "No, you " + text.substring(0, 200))
+            sendTextMessage(sender, text.substring(0, 200) + " is a silly thing to say.")
         }
         if (event.postback) {
             text = JSON.stringify(event.postback)
@@ -78,7 +82,10 @@ checkText = text.toUpperCase()
                 continue
             }
             
-
+              if (checkText.indexOf('WHO') > -1) {
+                sendWhoMessage(sender)
+                continue
+            }
   if (checkText.indexOf('INNOVATION') > -1) {
                 sendInnovationMessage(sender)
                 continue
@@ -209,5 +216,31 @@ function sendHelpMessage(sender){
         }
     })
 
+
+}
+function sendWhoMessage(sender){
+
+    messageData = {
+        "attachment": {
+            "type": "image",
+            "payload": {"url": "http://fluxx.uk.com/cms/wp-content/uploads/2016/03/Image-5-614x345.jpg",}    
+                    },
+            }
+        
+    request({
+        url: 'https://graph.facebook.com/v2.6/me/messages',
+        qs: {access_token:token},
+        method: 'POST',
+        json: {
+            recipient: {id:sender},
+            message: messageData,
+        }
+    }, function(error, response, body) {
+        if (error) {
+            console.log('Error sending messages: ', error)
+        } else if (response.body.error) {
+            console.log('Error: ', response.body.error)
+        }
+    })
 
 }
