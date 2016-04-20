@@ -103,7 +103,7 @@ function sendGenericMessage(sender) {
                 }, {
                     "title": "Second card",
                     "subtitle": "Element #2 of an hscroll",
-                    "image_url": "http://lorempixel.com/400/200/animals/",
+                    "image_url": "http://lorempixel.com/400/200/cats/",
                     "buttons": [{
                         "type": "postback",
                         "title": "Postback",
@@ -136,7 +136,7 @@ function sendSpecialMessage(sender) {
             "payload": {
                 "template_type": "generic",
                 "elements": [{
-                    "title": "Fancy Card",
+                    "title": "Special Message",
                     "subtitle": "Element #1 of an hscroll",
                     "image_url": "http://lorempixel.com/400/200/animals/",
                     "buttons": [{
@@ -151,7 +151,7 @@ function sendSpecialMessage(sender) {
                 }, {
                     "title": "Second card",
                     "subtitle": "Element #2 of an hscroll",
-                    "image_url": "http://http://lorempixel.com/400/200/animals/",
+                    "image_url": "http://lorempixel.com/400/200/cats/",
                     "buttons": [{
                         "type": "postback",
                         "title": "Postback",
