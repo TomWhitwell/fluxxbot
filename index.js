@@ -242,5 +242,6 @@ function sendWhoMessage(sender){
             console.log('Error: ', response.body.error)
         }
     })
+                sendTextMessage(sender,"We are Fluxx.")
 
 }
