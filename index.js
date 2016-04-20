@@ -153,7 +153,6 @@ function sendPersonMessage(sender) {
             "payload": {
                 "template_type": "generic",
                 "elements": [{
-                    "title": "People",
                     "image_url": "http://lorempixel.com/400/200/people/",
                     "buttons": [{
                         "type": "postback",
