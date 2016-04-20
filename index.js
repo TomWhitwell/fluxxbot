@@ -2,6 +2,7 @@ var express = require('express')
 var bodyParser = require('body-parser')
 var request = require('request')
 var app = express()
+var contentstring = "has not run properly" 
 
 app.set('port', (process.env.PORT || 5000))
 
@@ -243,6 +244,7 @@ function sendWhoMessage(sender){
         }
     })
                 sendTextMessage(sender,"We are Fluxx.")
+                sendTextMessage(sender,contentstring)
 
 }
 
@@ -396,32 +398,13 @@ var yWords=[
 ];
 
 function randomWord(){
-var fluxx=document.getElementById('fluxx');
 
-pickSubject = getQueryVariable("s");
-if (pickSubject == 0){
-pickSubject = Math.round(Math.random()*(subjects.length-1));};
-
-pickVerb = getQueryVariable("v");
-if (pickVerb == 0){
-pickVerb = Math.round(Math.random()*(verbs.length-1));};
-
-pickObject = getQueryVariable("o");
-if (pickObject == 0){
-pickObject = Math.round(Math.random()*(objects.length-1));};
-
-pickEnding = getQueryVariable("e");
-if (pickEnding == 0){
-pickEnding = Math.round(Math.random()*(endings.length-1));};
-
-pickX = getQueryVariable("x");
-if (pickX == 0){
-pickX = Math.round(Math.random()*(xWords.length-1));};
-
-
-pickY = getQueryVariable("y");
-if (pickY == 0){
-pickY = Math.round(Math.random()*(yWords.length-1));};
+pickSubject = Math.round(Math.random()*(subjects.length-1));
+pickVerb = Math.round(Math.random()*(verbs.length-1));
+pickObject = Math.round(Math.random()*(objects.length-1));
+pickEnding = Math.round(Math.random()*(endings.length-1));
+pickX = Math.round(Math.random()*(xWords.length-1));
+pickY = Math.round(Math.random()*(yWords.length-1));
 
 contentstring = 
 'Fintech folks at <a href="http://fluxx.uk.com/" style="color:#C5D13B">Fluxx</a> are talking about this ' 
@@ -441,32 +424,5 @@ xWords[pickX]
 yWords[pickY]
 +
 endings[pickEnding]
-+
-' <br><a href="Fintech-Innovate-O-Matic.html">Give me another.</a></br>'; 
-
-tweetstring = 'It\'s like ' 
-
-+
-xWords[pickX]
-+
-' for '
-+
-yWords[pickY]
-+
-endings[pickEnding];
-
-tweetstring = tweetstring.substring(0,80) + '...';
-
-pageurl = encodeURIComponent('Fintech-Innovate-O-Matic.html?s=' + pickSubject + '&o=' + pickObject + '&e=' + pickEnding + '&x=' + pickX  +  '&y=' + pickY);
-
-linkurl = encodeURI('Fintech-Innovate-O-Matic.html?s=' + pickSubject + '&o=' + pickObject + '&e=' + pickEnding + '&x=' + pickX  +  '&y=' + pickY);
-
-
-twitterurl=encodeURI('https://twitter.com/share?via=fluxXstudios&text=' + tweetstring + '&url=http://www.fluxx.uk.com/download/') + pageurl + '&hashtags=fintech';
-
-
-
-window.onload=function(){
-	fluxx.innerHTML+=contentstring + '<a href=' +  twitterurl + ' style="color:4099FF"> Tweet. </a><a href=' + linkurl + ' style="color:#B8B8B8"> Link.</a>';
-}
+; 
 }
