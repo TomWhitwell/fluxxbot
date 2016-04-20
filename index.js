@@ -36,11 +36,12 @@ app.post('/webhook/', function (req, res) {
         sender = event.sender.id
         if (event.message && event.message.text) {
             text = event.message.text
-            if (text === 'Generic') {
+            text = text.toUpperCase()
+            if (text === 'GENERIC') {
                 sendGenericMessage(sender)
                 continue
             }
-            if (text.indexOf('Special') > -1) {
+            if (text.indexOf('SPECIAL') > -1) {
                 sendSpecialMessage(sender)
                 continue
             }
