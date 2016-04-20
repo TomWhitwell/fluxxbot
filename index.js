@@ -50,6 +50,11 @@ app.post('/webhook/', function (req, res) {
                 sendInnovationMessage(sender)
                 continue
             }
+                        if (checkText==='HI') {
+                sendTextMessage(sender,"Yes I am alive")
+                continue
+            }
+
             
             sendTextMessage(sender, "No, you " + text.substring(0, 200))
         }
