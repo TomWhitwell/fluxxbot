@@ -37,12 +37,12 @@ app.post('/webhook/', function (req, res) {
         if (event.message && event.message.text) {
             text = event.message.text
             checkText = text.toUpperCase()
-            if (checkText === 'GENERIC') {
-                sendGenericMessage(sender)
+            if (checkText.indexOf('ANIMAL') > -1) {
+                sendAnimalMessage(sender)
                 continue
             }
-            if (checkText.indexOf('SPECIAL') > -1) {
-                sendSpecialMessage(sender)
+            if (checkText.indexOf('PERSON') > -1) {
+                sendPersonMessage(sender)
                 continue
             }
 
@@ -89,14 +89,14 @@ sendTextMessage(sender, "I don\'t really like to talk about innovation.")
 
 }
 
-function sendGenericMessage(sender) {
+function sendAnimalMessage(sender) {
     messageData = {
         "attachment": {
             "type": "template",
             "payload": {
                 "template_type": "generic",
                 "elements": [{
-                    "title": "First card",
+                    "title": "Let me show you an animal",
                     "subtitle": "Element #1 of an hscroll",
                     "image_url": "http://lorempixel.com/400/200/animals/",
                     "buttons": [{
@@ -105,8 +105,8 @@ function sendGenericMessage(sender) {
                         "title": "web url"
                     }, {
                         "type": "postback",
-                        "title": "Postback",
-                        "payload": "Payload for first element in a generic bubble",
+                        "title": "No thanks show me a person",
+                        "payload": "Person",
                     }],
                 }, {
                     "title": "Second card",
@@ -137,7 +137,7 @@ function sendGenericMessage(sender) {
         }
     })
 }
-function sendSpecialMessage(sender) {
+function sendPersonMessage(sender) {
     messageData = {
         "attachment": {
             "type": "template",
