@@ -55,6 +55,12 @@ app.post('/webhook/', function (req, res) {
                 sendWhoMessage(sender)
                 continue
             }
+                          if (checkText.indexOf('IDEA') > -1) {
+                randomWord()
+                sendTextMessage(sender,contentstring)
+                continue
+            }
+            
                         if (checkText === 'HI') {
                 sendTextMessage(sender,"Yes I am alive")
                 continue
@@ -244,8 +250,7 @@ function sendWhoMessage(sender){
         }
     })
                 sendTextMessage(sender,"We are Fluxx.")
-                randomWord()
-                sendTextMessage(sender,contentstring)
+
 
 }
 
@@ -408,7 +413,7 @@ pickX = Math.round(Math.random()*(xWords.length-1));
 pickY = Math.round(Math.random()*(yWords.length-1));
 
 contentstring = 
-'Fintech folks at <a href="http://fluxx.uk.com/" style="color:#C5D13B">Fluxx</a> are talking about this ' 
+'I heard about this ' 
 + 
 subjects[pickSubject]
 + 
