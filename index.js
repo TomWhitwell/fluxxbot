@@ -64,6 +64,11 @@ checkText = text.toUpperCase()
                 sendPersonMessage(sender)
                 continue
             }
+            if (checkText==='HI') {
+                sendTextMessage(sender,"Yes I am alive")
+                continue
+            }
+            
 
   if (checkText.indexOf('INNOVATION') > -1) {
                 sendInnovationMessage(sender)
