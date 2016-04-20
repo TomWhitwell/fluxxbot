@@ -149,20 +149,14 @@ function sendAnimalMessage(sender) {
 function sendPersonMessage(sender) {
     messageData = {
         "attachment": {
-            "type": "template",
-            "payload": {
-                "template_type": "image",
-                "elements": [{
-                    "image_url": "http://lorempixel.com/400/200/people/",
-                    "buttons": [{
-                        "type": "postback",
-                        "title": "I prefer animals",
-                        "payload": "animals",
-                    }],
-                }]
+            "type": "image",
+            "payload": {"url": "http://lorempixel.com/400/200/people/",}
+                    
+                    },
+                
             }
-        }
-    }
+        
+    
     request({
         url: 'https://graph.facebook.com/v2.6/me/messages',
         qs: {access_token:token},
