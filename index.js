@@ -110,13 +110,9 @@ function sendAnimalMessage(sender) {
             "payload": {
                 "template_type": "generic",
                 "elements": [{
-                    "title": "",
+                    "title": "Animals",
                     "image_url": "http://lorempixel.com/400/200/animals/",
                     "buttons": [{
-                        "type": "web_url",
-                        "url": "https://www.messenger.com",
-                        "title": "web url"
-                    }, {
                         "type": "postback",
                         "title": "I prefer people",
                         "payload": "Person",
