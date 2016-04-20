@@ -36,12 +36,12 @@ app.post('/webhook/', function (req, res) {
         sender = event.sender.id
         if (event.message && event.message.text) {
             text = event.message.text
-            text = text.toUpperCase()
-            if (text === 'GENERIC') {
+            checkText = text.toUpperCase()
+            if (checkText === 'GENERIC') {
                 sendGenericMessage(sender)
                 continue
             }
-            if (text.indexOf('SPECIAL') > -1) {
+            if (checkText.indexOf('SPECIAL') > -1) {
                 sendSpecialMessage(sender)
                 continue
             }
@@ -90,7 +90,7 @@ function sendGenericMessage(sender) {
                 "elements": [{
                     "title": "First card",
                     "subtitle": "Element #1 of an hscroll",
-                    "image_url": "http://messengerdemo.parseapp.com/img/rift.png",
+                    "image_url": "http://lorempixel.com/400/200/animals/",
                     "buttons": [{
                         "type": "web_url",
                         "url": "https://www.messenger.com",
@@ -103,7 +103,7 @@ function sendGenericMessage(sender) {
                 }, {
                     "title": "Second card",
                     "subtitle": "Element #2 of an hscroll",
-                    "image_url": "http://messengerdemo.parseapp.com/img/gearvr.png",
+                    "image_url": "http://lorempixel.com/400/200/animals/",
                     "buttons": [{
                         "type": "postback",
                         "title": "Postback",
@@ -138,7 +138,7 @@ function sendSpecialMessage(sender) {
                 "elements": [{
                     "title": "Fancy Card",
                     "subtitle": "Element #1 of an hscroll",
-                    "image_url": "http://messengerdemo.parseapp.com/img/rift.png",
+                    "image_url": "http://lorempixel.com/400/200/animals/",
                     "buttons": [{
                         "type": "web_url",
                         "url": "https://www.messenger.com",
@@ -151,7 +151,7 @@ function sendSpecialMessage(sender) {
                 }, {
                     "title": "Second card",
                     "subtitle": "Element #2 of an hscroll",
-                    "image_url": "http://messengerdemo.parseapp.com/img/gearvr.png",
+                    "image_url": "http://http://lorempixel.com/400/200/animals/",
                     "buttons": [{
                         "type": "postback",
                         "title": "Postback",
