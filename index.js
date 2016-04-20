@@ -119,8 +119,6 @@ function sendAnimalMessage(sender) {
                     }, {
                         "type": "postback",
                         "title": "Show me",
-                        "subtitle": "a person",
-
                         "payload": "Person",
                     }],
                 }, {
