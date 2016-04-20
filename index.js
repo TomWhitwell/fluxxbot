@@ -118,7 +118,7 @@ function sendAnimalMessage(sender) {
                         "title": "web url"
                     }, {
                         "type": "postback",
-                        "title": "Show me",
+                        "title": "I prefer people",
                         "payload": "Person",
                     }],
                 }, {
@@ -157,22 +157,18 @@ function sendPersonMessage(sender) {
             "payload": {
                 "template_type": "generic",
                 "elements": [{
-                    "title": "Special Message",
+                    "title": "People",
                     "subtitle": "Element #1 of an hscroll",
-                    "image_url": "http://lorempixel.com/400/200/animals/",
+                    "image_url": "http://lorempixel.com/400/200/people/",
                     "buttons": [{
-                        "type": "web_url",
-                        "url": "https://www.messenger.com",
-                        "title": "web url"
-                    }, {
                         "type": "postback",
-                        "title": "Postback",
-                        "payload": "Payload for first element in a generic bubble",
+                        "title": "I prefer animals",
+                        "payload": "animals",
                     }],
                 }, {
                     "title": "Second card",
                     "subtitle": "Element #2 of an hscroll",
-                    "image_url": "http://lorempixel.com/400/200/cats/",
+                    "image_url": "http://lorempixel.com/400/200/people/",
                     "buttons": [{
                         "type": "postback",
                         "title": "Postback",
