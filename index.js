@@ -40,7 +40,7 @@ app.post('/webhook/', function (req, res) {
                 sendGenericMessage(sender)
                 continue
             }
-            if (text === 'Special') {
+            if (text.indexOf('Special') > -1) {
                 sendSpecialMessage(sender)
                 continue
             }
