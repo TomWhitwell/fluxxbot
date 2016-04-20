@@ -61,6 +61,14 @@ app.post('/webhook/', function (req, res) {
                 continue
             }
             
+                                    if (checkText === 'ME') {
+
+                sendTextMessage(sender,event.message.recipient.id)
+                continue
+            }
+            
+            
+            
                         if (checkText === 'HI') {
                 sendTextMessage(sender,"Yes I am alive")
                 continue
