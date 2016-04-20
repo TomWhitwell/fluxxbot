@@ -244,6 +244,7 @@ function sendWhoMessage(sender){
         }
     })
                 sendTextMessage(sender,"We are Fluxx.")
+                randomWord()
                 sendTextMessage(sender,contentstring)
 
 }
