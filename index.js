@@ -63,7 +63,7 @@ app.post('/webhook/', function (req, res) {
             
                                     if (checkText === 'ME') {
 
-                sendTextMessage(sender,event.message.recipient.id)
+                sendTextMessage(sender,"who are you?")
                 continue
             }
             
