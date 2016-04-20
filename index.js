@@ -110,7 +110,6 @@ function sendAnimalMessage(sender) {
             "payload": {
                 "template_type": "generic",
                 "elements": [{
-                    "title": "Let me show you an animal",
                     "image_url": "http://lorempixel.com/400/200/animals/",
                     "buttons": [{
                         "type": "web_url",
