@@ -395,7 +395,7 @@ var yWords=[
 'members of the House of Lords'
 ];
 
-
+function randomWord(){
 var fluxx=document.getElementById('fluxx');
 
 pickSubject = getQueryVariable("s");
@@ -469,15 +469,4 @@ twitterurl=encodeURI('https://twitter.com/share?via=fluxXstudios&text=' + tweets
 window.onload=function(){
 	fluxx.innerHTML+=contentstring + '<a href=' +  twitterurl + ' style="color:4099FF"> Tweet. </a><a href=' + linkurl + ' style="color:#B8B8B8"> Link.</a>';
 }
-
-function getQueryVariable(variable){
-       var query = window.location.search.substring(1);
-       var vars = query.split("&");
-       for (var i=0;i<vars.length;i++) {
-               var pair = vars[i].split("=");
-               if(pair[0] == variable){return pair[1];}
-       }
-       return(false);
 }
-	
-
