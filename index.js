@@ -114,7 +114,7 @@ function sendAnimalMessage(sender) {
                     "image_url": "http://lorempixel.com/400/200/animals/",
                     "buttons": [{
                         "type": "postback",
-                        "title": "I prefer people",
+                        "title": "I prefer a person",
                         "payload": "Person",
                     }],
                 }, {
@@ -151,7 +151,7 @@ function sendPersonMessage(sender) {
         "attachment": {
             "type": "template",
             "payload": {
-                "template_type": "generic",
+                "template_type": "image",
                 "elements": [{
                     "image_url": "http://lorempixel.com/400/200/people/",
                     "buttons": [{
