@@ -110,6 +110,7 @@ function sendAnimalMessage(sender) {
             "payload": {
                 "template_type": "generic",
                 "elements": [{
+                    "title": "",
                     "image_url": "http://lorempixel.com/400/200/animals/",
                     "buttons": [{
                         "type": "web_url",
@@ -157,7 +158,6 @@ function sendPersonMessage(sender) {
                 "template_type": "generic",
                 "elements": [{
                     "title": "People",
-                    "subtitle": "Element #1 of an hscroll",
                     "image_url": "http://lorempixel.com/400/200/people/",
                     "buttons": [{
                         "type": "postback",
