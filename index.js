@@ -183,17 +183,17 @@ function sendHelpMessage(sender){
         "buttons":[
           {
             "type":"postback",
-            "title":"A picture of an animal",
+            "title":"Pic of an animal",
             "payload":"ANIMALS"
           },
           {
             "type":"postback",
-            "title":"A picture of a person",
+            "title":"Pic of a person",
             "payload":"PERSON"
           },
           {
             "type":"postback",
-            "title":"Witty chat about innovation",
+            "title":"Innovation bants",
             "payload":"INNOVATION"
           }
         ]
