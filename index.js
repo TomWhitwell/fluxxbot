@@ -123,8 +123,7 @@ function sendAnimalMessage(sender) {
 
                         "payload": "Person",
                     }],
-                }, ],
-                }]
+                }, ]
             }
         }
     }
