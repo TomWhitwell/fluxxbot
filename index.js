@@ -50,7 +50,7 @@ app.post('/webhook/', function (req, res) {
                 sendInnovationMessage(sender)
                 continue
             }
-                        if (checkText==='HI') {
+                        if (checkText === 'HI') {
                 sendTextMessage(sender,"Yes I am alive")
                 continue
             }
