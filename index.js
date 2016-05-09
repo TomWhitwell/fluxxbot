@@ -136,18 +136,18 @@ if (checkText.indexOf(repliesMenu[i][0]) > -1){
         "buttons":[
           {
             "type":"postback",
-            "title":"Pic of an animal",
-            "payload":"ANIMALS"
+            "title":repliesMenu[i][2],
+            "payload":repliesMenu[i][5]
           },
           {
             "type":"postback",
-            "title":"Pic of a person",
-            "payload":"PERSON"
+            "title":repliesMenu[i][3],
+            "payload":repliesMenu[i][6]
           },
           {
             "type":"postback",
-            "title":"Innovation bants",
-            "payload":"INNOVATION"
+            "title":repliesMenu[i][4],
+            "payload":repliesMenu[i][7]
           }
         ]
             }
