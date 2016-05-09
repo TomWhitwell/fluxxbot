@@ -5,33 +5,12 @@ var app = express()
 var contentstring = "has not run properly" 
 
 
-// reply database  
-
-
-var repliesLoose = [[ // This word, anywhere in the entry string
-"HELLO", 
-"you said hello somewhere ", 
-],[
-"HI", 
-"you said hi somewhere", 
-],[
-"CHEESE", 
-"you said cheese somewhere", 
-]];
-
-var repliesTight = [[ // entry string is this word 
-"HELLO", 
-"you just said hello", 
-],[
-"HI",  
-"you just said hi", 
-],[
-"CHEESE", 
-"you just said cheese", 
-]];
-
-
-
+// reply to messages that include the word  
+// [Trigger word] [response] 
+var includeReply = [
+["HELLO", "Hello back"],
+["GOODBYE", "goodbye back"],
+["TEST", "test back"]]
 
 app.set('port', (process.env.PORT || 5000))
 
@@ -66,21 +45,46 @@ app.post('/webhook/', function (req, res) {
         sender = event.sender.id
         if (event.message && event.message.text) {
             text = event.message.text
- /// text = content of message 
- 
- // preprocess text to remove punctuation and uppercase 
- checkText = text.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g," "); 
-            checkText = checkText.toUpperCase()
+            checkText = text.toUpperCase()
+            if (checkText.indexOf('ANIMAL') > -1) {
+                sendAnimalMessage(sender)
+                continue
+            }
+            if (checkText.indexOf('PERSON') > -1) {
+                sendPersonMessage(sender)
+                continue
+            }
+
+  if (checkText.indexOf('INNOVATION') > -1) {
+                sendInnovationMessage(sender)
+                continue
+            }
+              if (checkText.indexOf('WHO') > -1) {
+                sendWhoMessage(sender)
+                continue
+            }
+                          if (checkText.indexOf('IDEA') > -1) {
+                randomWord()
+                sendTextMessage(sender,contentstring)
+                continue
+            }
+            
+                                    if (checkText === 'ME') {
+
+                sendTextMessage(sender,event.recipient.id)
+                continue
+            }
             
             
- // search for a reply            
- 
-//                 sendTextMessage(sender,contentstring)
-
-
-
-
-
+            
+                        if (checkText === 'HI') {
+                sendTextMessage(sender,"Yes I am alive")
+                continue
+            }
+                        if (checkText === 'HELP') {
+                sendHelpMessage(sender)
+                continue
+            }
 
             
             sendTextMessage(sender, text.substring(0, 200) + " is a silly thing to say.")
