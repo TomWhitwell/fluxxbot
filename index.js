@@ -82,7 +82,7 @@ lengthLoose = repliesLoose.length;
 
 // default message if nothing else happens 
          
-var result = text.substring(0, 200) + " is a silly thing to say.";
+var result = "How does " + text.substring(0, 200) + " make you feel?";
 
 var found = 0;
 var i = 0; 
