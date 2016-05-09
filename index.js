@@ -30,8 +30,41 @@ var repliesTight = [[ // entry string is this word
 "you just said cheese", 
 ]];
 
-
-
+var repliesMenu = [[ 
+// this word triggers the menu [0]
+"HELP", 
+// text at top of menu [1]
+"This is the help menu", 
+// Menu item 1 [2]
+"Menu one", 
+// Menu item 2 [3]
+"Menu two", 
+// Menu item 3 [4]
+"Menu three",
+// Payload for 1 [5] 
+"ONE", 
+// Payload for 2 [6]
+"TWO", 
+// Payload for 3 [7]
+"THREE"
+],[
+// this word triggers the menu [0]
+"MENU", 
+// text at top of menu [1]
+"This is the menu menu", 
+// Menu item 1 [2]
+"Menu oner", 
+// Menu item 2 [3]
+"Menu twoer", 
+// Menu item 3 [4]
+"Menu threeer",
+// Payload for 1 [5] 
+"ONE", 
+// Payload for 2 [6]
+"TWO", 
+// Payload for 3 [7]
+"THREE"
+]];
 
 app.set('port', (process.env.PORT || 5000))
 
@@ -79,22 +112,90 @@ app.post('/webhook/', function (req, res) {
 
 lengthTight = repliesTight.length; 
 lengthLoose = repliesLoose.length; 
+lengthMenu = repliesMenu.length;
 
 // default message if nothing else happens 
          
-var result = "How does " + text.substring(0, 200) + " make you feel?";
+var result = "Why would you say " + text.substring(0, 200) + " to me?";
 
 var found = 0;
 var i = 0; 
+
+
+// Search for Menu results 
+while (found == 0 && i < lengthMenu){
+if (checkText.indexOf(repliesMenu[i][0]) > -1){
+
+
+
+
+    messageData = {
+        "attachment":{
+      "type":"template",
+      "payload":{
+        "template_type":"button",
+        "text":"I can help you with these things only?",
+        "buttons":[
+          {
+            "type":"postback",
+            "title":"Pic of an animal",
+            "payload":"ANIMALS"
+          },
+          {
+            "type":"postback",
+            "title":"Pic of a person",
+            "payload":"PERSON"
+          },
+          {
+            "type":"postback",
+            "title":"Innovation bants",
+            "payload":"INNOVATION"
+          }
+        ]
+            }
+        }
+    }
+    request({
+        url: 'https://graph.facebook.com/v2.6/me/messages',
+        qs: {access_token:token},
+        method: 'POST',
+        json: {
+            recipient: {id:sender},
+            message: messageData,
+        }
+    }, function(error, response, body) {
+        if (error) {
+            console.log('Error sending messages: ', error)
+        } else if (response.body.error) {
+            console.log('Error: ', response.body.error)
+        }
+    })
+
+
+
+
+
+
+
+
+
+found = 1; 
+}
+i++;
+}
+
+
+// Search for tight results 
+i=0;
 while (found == 0 && i < lengthTight){
-
-
 if (repliesTight[i][0] === checkText){
 result = repliesTight[i][1];
     found = 1;
     };
   i++;  
 }
+
+// Search for loose results 
 i=0;
 while (found == 0 && i < lengthLoose){
 
@@ -107,8 +208,9 @@ i++;
 
 }    
     
-// console.log(result);
- sendTextMessage(sender,result)
+if (found == 0){
+ sendTextMessage(sender,result);}
+
 found = 1;
 
 
