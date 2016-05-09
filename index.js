@@ -24,7 +24,7 @@ var repliesTight = [[ // entry string is this word
 "you just said hello", 
 ],[
 "HI",  
-"you just said hi", 
+"Yes I'm alive", 
 ],[
 "CHEESE", 
 "you just said cheese", 
