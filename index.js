@@ -121,13 +121,11 @@ var result = "Why would you say " + text.substring(0, 200) + " to me?";
 var found = 0;
 var i = 0; 
 
-
+/*
 // Search for Menu results 
 while (found == 0 && i < lengthMenu){
+
 if (checkText.indexOf(repliesMenu[i][0]) > -1){
-
-
-
 
     messageData = {
         "attachment":{
@@ -173,17 +171,12 @@ if (checkText.indexOf(repliesMenu[i][0]) > -1){
 
 
 
-
-
-
-
-
-
 found = 1; 
 }
 i++;
 }
 
+*/
 
 // Search for tight results 
 i=0;
