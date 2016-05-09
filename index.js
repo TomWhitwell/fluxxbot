@@ -132,7 +132,7 @@ if (checkText.indexOf(repliesMenu[i][0]) > -1){
       "type":"template",
       "payload":{
         "template_type":"button",
-        "text":"I can help you with these things only?",
+        "text":repliesMenu[i][1],
         "buttons":[
           {
             "type":"postback",
