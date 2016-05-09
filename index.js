@@ -80,6 +80,8 @@ app.post('/webhook/', function (req, res) {
 lengthTight = repliesTight.length; 
 lengthLoose = repliesLoose.length; 
 
+// default message if nothing else happens 
+         
 var result = text.substring(0, 200) + " is a silly thing to say.";
 
 var found = 0;
@@ -88,7 +90,7 @@ while (found == 0 && i < lengthTight){
 
 
 if (repliesTight[i][0] === checkText){
-result = "TIGHT"+repliesTight[i][1];
+result = repliesTight[i][1];
     found = 1;
     };
   i++;  
@@ -97,7 +99,7 @@ i=0;
 while (found == 0 && i < lengthLoose){
 
 if (checkText.indexOf(repliesLoose[i][0]) > -1){
-    result = "LOOSE"+repliesLoose[i][1];
+    result = repliesLoose[i][1];
 found = 1;
     
 };
@@ -111,9 +113,7 @@ found = 1;
 
 
 
-// default message if nothing else happens 
-            
-            sendTextMessage(sender, text.substring(0, 200) + " is a silly thing to say.")
+
         }
         if (event.postback) {
             text = JSON.stringify(event.postback)
