@@ -121,7 +121,7 @@ var result = "Why would you say " + text.substring(0, 200) + " to me?";
 var found = 0;
 var i = 0; 
 
-/*
+
 // Search for Menu results 
 while (found == 0 && i < lengthMenu){
 
@@ -176,7 +176,7 @@ found = 1;
 i++;
 }
 
-*/
+
 
 // Search for tight results 
 i=0;
