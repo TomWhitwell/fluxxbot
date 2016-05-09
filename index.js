@@ -201,8 +201,8 @@ i++;
 
 }    
     
-if (found == 0){
- sendTextMessage(sender,result);}
+
+ sendTextMessage(sender,result);
 
 found = 1;
 
