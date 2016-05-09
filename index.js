@@ -36,11 +36,11 @@ var repliesMenu = [[
 // text at top of menu [1]
 "This is the help menu", 
 // Menu item 1 [2]
-"Menu one", 
+"Help one", 
 // Menu item 2 [3]
-"Menu two", 
+"Help two", 
 // Menu item 3 [4]
-"Menu three",
+"Help three",
 // Payload for 1 [5] 
 "ONE", 
 // Payload for 2 [6]
@@ -53,11 +53,11 @@ var repliesMenu = [[
 // text at top of menu [1]
 "This is the menu menu", 
 // Menu item 1 [2]
-"Menu oner", 
+"Menu one", 
 // Menu item 2 [3]
-"Menu twoer", 
+"Menu two", 
 // Menu item 3 [4]
-"Menu threeer",
+"Menu three",
 // Payload for 1 [5] 
 "ONE", 
 // Payload for 2 [6]
@@ -117,7 +117,7 @@ lengthMenu = repliesMenu.length;
 // default message if nothing else happens 
          
 var result = "Why would you say " + text.substring(0, 200) + " to me?";
-
+var replied = 0;
 var found = 0;
 var i = 0; 
 
@@ -126,7 +126,7 @@ var i = 0;
 while (found == 0 && i < lengthMenu){
 
 if (checkText.indexOf(repliesMenu[i][0]) > -1){
-
+replied = 1;
     messageData = {
         "attachment":{
       "type":"template",
@@ -201,8 +201,12 @@ i++;
 
 }    
     
+    
+ if (replied == 0){   
 
  sendTextMessage(sender,result);
+
+}
 
 found = 1;
 
