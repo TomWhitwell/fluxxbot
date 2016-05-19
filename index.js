@@ -10,7 +10,7 @@ var contentstring = "has not run properly"
 
 var repliesLoose = [[ // This word, anywhere in the entry string
 "HELLO", 
-"you said hello somewhere ", 
+"you said hello Per ", 
 ],[
 "HI", 
 "you said hi somewhere", 
